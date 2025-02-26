@@ -1,22 +1,46 @@
-import React from 'react'
+import React, { useContext } from "react";
+import ThemeContext from "../context/ThemeContext";
 
 const Topics = () => {
-  return (
-    <div className=" w-full flex flex-nowrap overflow-x-auto p-3 gap-2 mt-2">
-        <div className="flex justify-center items-center border bg-black px-2 py-1.5 rounded-sm text-white">Political </div>
-        <div className="flex justify-center items-center border border-gray-500 px-2 py-1 hover:bg-black hover:text-white transition-all duration-300 rounded-sm">Economic</div>
-        <div className="flex justify-center items-center border border-gray-500 px-2 py-1 hover:bg-black hover:text-white transition-all duration-300 rounded-sm">Crime</div>
-        <div className="flex justify-center items-center border border-gray-500 px-2 py-1 hover:bg-black hover:text-white transition-all duration-300 rounded-sm">Technology</div>
-        <div className="flex justify-center items-center border border-gray-500 px-2 py-1 hover:bg-black hover:text-white transition-all duration-300 rounded-sm">Weather</div>
-        <div className="flex justify-center items-center border border-gray-500 px-2 py-1 hover:bg-black hover:text-white transition-all duration-300 rounded-sm">Entertainment</div>
-        <div className="flex justify-center items-center border border-gray-500 px-2 py-1 hover:bg-black hover:text-white transition-all duration-300 rounded-sm">Sports</div>
-        <div className="flex justify-center items-center border border-gray-500 px-2 py-1 hover:bg-black hover:text-white transition-all duration-300 rounded-sm"> Lifestyle</div>
-        <div className="flex justify-center items-center border border-gray-500 px-2 py-1 hover:bg-black hover:text-white transition-all duration-300 rounded-sm">Health </div>
-        <div className="flex justify-center items-center border border-gray-500 px-2 py-1 hover:bg-black hover:text-white transition-all duration-300 rounded-sm">Editorials</div>
-        <div className="flex justify-center items-center border border-gray-500 px-2 py-1 hover:bg-black hover:text-white transition-all duration-300 rounded-sm">Investigative</div>
-        <div className="flex justify-center items-center border border-gray-500 px-2 py-1 hover:bg-black hover:text-white transition-all duration-300 rounded-sm">Cultural</div>
-    </div>
-  )
-}
+  const topics = [
+    "Political",
+    "Economic",
+    "Crime",
+    "Technology",
+    "Weather",
+    "Entertainment",
+    "Sports",
+    "Lifestyle",
+    "Health",
+    "Editorials",
+    "Investigative",
+    "Cultural",
+  ];
 
-export default Topics
+  const { theme } = useContext(ThemeContext);
+
+  return (
+    <div
+      className={`w-full flex justify-center items-center flex-nowrap overflow-x-auto p-3 gap-2 py-3 transition
+        ${theme === false ? "bg-white text-black" : "bg-[#212121] text-white"}
+      `}
+    >
+      {topics.map((topic, index) => (
+        <div
+          key={index}
+          className={`flex justify-center items-center border px-2 py-1.5 rounded-sm cursor-pointer transition
+            ${
+              index === 0
+                ? "bg-black text-white"
+                : "border-gray-500 hover:bg-black hover:text-white"
+            }
+          `}
+        >
+          {topic}
+        </div>
+      ))}
+    </div>
+  );
+};
+
+export default Topics;

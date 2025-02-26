@@ -1,4 +1,9 @@
 @import 'tailwindcss';
 body{
-    background-color: #fbfbfb;
+    /* background-color: #fbfbfb; */
+}
+*{
+    /* border:  1px solid red; */
+    transition: all 0.2s  ease;
+
 }
