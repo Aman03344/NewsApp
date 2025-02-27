@@ -30,7 +30,7 @@ const NewsItems = ({ article }) => {
 
       <span className="text-sm md:text-[12px] text-gray-600 font-bold  px-3 ">
         {article.publishedAt
-          ? new Date(article.publishedAt).toLocaleDateString()
+          ? new Date(article.publishedAt).toLocaleDateString('en-IN')
           : "Unknown Date"}
       </span>
     </div>
