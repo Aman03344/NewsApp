@@ -37,7 +37,7 @@ const Navbar = () => {
       <button
         onClick={toggleMode}
         className="ml-auto w-12 h-12 text-white bg-black p-2 rounded-full text-xl flex items-center justify-center"
-      >
+      >                                                                            
         {theme ?  <IoSunny /> : <IoMoonOutline />}
       </button>
     </nav>

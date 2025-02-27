@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import ThemeContext from "../context/ThemeContext";
-import { Link } from "react-router-dom";
 
 const NewsItems = ({ article }) => {
   const { theme } = useContext(ThemeContext);
@@ -15,7 +14,7 @@ const NewsItems = ({ article }) => {
           <img className=" rounded-md" src={article.image} alt="newsImage" />
         </div>
         <div className="w-full  md:w-[50%] ">
-          <h1 className=" text-2xl font-bold md:text-4xl px-3">
+          <h1 className=" text-2xl font-bold md:text-4xl px-3 pt-2">
             {article.title}
           </h1>
           <p className="py-2 md:text-lg px-3">{article.description}</p>
@@ -24,9 +23,8 @@ const NewsItems = ({ article }) => {
       <p className="py-1 md:text-lg px-3">
         {article.content}
         <span className=" text-blue-600 text-sm px-3 cursor-pointer hover:underline">
-          <a href={article.source.url} target="_blank">
-            Read more...
-          </a>
+          <a
+            href={article.source.url} target="_blank">Readmore..</a>
         </span>
       </p>
 
