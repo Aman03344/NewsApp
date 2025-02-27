@@ -1,9 +1,11 @@
 import React, { useContext, useEffect, useState } from "react";
 import WeatherContext from "./weather/Weather";
+import ThemeContext from "../context/ThemeContext";
 
 const Weather = () => {
   const { data, dispatch } = useContext(WeatherContext);
   const [searchQuery, setSearchQuery] = useState("");
+  const { theme } = useContext(ThemeContext);
 
   const fetchWeather = async (query = "indore") => {
     const res = await fetch(
@@ -31,13 +33,14 @@ const Weather = () => {
     e.preventDefault();
     fetchWeather(searchQuery);
   };
+  
 
   return (
-    <div className="w-full md:w-[50%] px-3 pt-5">
+    <div className={`w-full  px-3 pt-5 ${theme === false ? "bg-white text-black" : "bg-[#212121] text-white"}`}>
       <div className="w-full px-3 py-2 border border-gray-500">
         <form onSubmit={handleSubmit} className="w-full flex">
           <input
-            className="w-[80%] mx-4 px-2 md:w-[90%] border outline-none"
+            className={`w-[80%] mx-4 px-2 md:w-[90%] border outline-none ${theme=== false ? "text-black" : "text-white"}`}
             type="text"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
