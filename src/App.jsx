@@ -6,6 +6,8 @@ import Topics from "./conponents/Topics";
 import { NewsProvider } from "./context/NewsContext";
 import NewsGroup from "./conponents/NewsGroup";
 import Footer from "./conponents/Footer";
+import Weather from "./conponents/Weather";
+import { WeatherProvider } from "./conponents/weather/Weather";
 
 const App = () => {
   const [selectedTopic, setSelectedTopic] = useState("Political");
@@ -16,8 +18,12 @@ const App = () => {
       <Heading />
       <Form />
       <Topics />
-     <NewsGroup/>
-     <Footer/>
+      <WeatherProvider>
+        <Weather />
+      </WeatherProvider>
+
+      <NewsGroup />
+      <Footer />
     </NewsProvider>
   );
 };
